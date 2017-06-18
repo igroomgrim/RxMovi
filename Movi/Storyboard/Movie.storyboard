@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Movie List View Controller-->
+        <!--Movie List-->
         <scene sceneID="Og7-cF-aC8">
             <objects>
-                <tableViewController id="voi-eG-erk" customClass="MovieListViewController" customModule="Movi" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Movie" id="voi-eG-erk" userLabel="Movie List" customClass="MovieListViewController" customModule="Movi" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="60X-1z-LZE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -71,16 +71,16 @@
                             <outlet property="delegate" destination="voi-eG-erk" id="GhI-RV-9QL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="leC-Ge-CJy"/>
+                    <navigationItem key="navigationItem" title="Movie" id="leC-Ge-CJy"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G6i-ob-adV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1301.5999999999999" y="-46.326836581709152"/>
         </scene>
-        <!--Movie Detail View Controller-->
+        <!--Movie Detail-->
         <scene sceneID="fF8-u8-jhP">
             <objects>
-                <tableViewController id="gJB-Zd-BJL" customClass="MovieDetailViewController" customModule="Movi" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="gJB-Zd-BJL" userLabel="Movie Detail" customClass="MovieDetailViewController" customModule="Movi" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Lds-lk-l4l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,9 +112,10 @@
                     <tabBarItem key="tabBarItem" title="Movie" id="da5-bW-8e9"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nrS-Kl-Qx9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="nrS-Kl-Qx9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.792156862745098" green="0.83529411764705885" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

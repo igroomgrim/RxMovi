@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--TV-->
         <scene sceneID="9bz-sS-Nl3">
             <objects>
                 <viewController id="qZE-FM-mOZ" sceneMemberID="viewController">
@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="O4u-lv-Yyk"/>
+                    <navigationItem key="navigationItem" title="TV" id="O4u-lv-Yyk"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UbI-Fz-mNa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -35,9 +35,10 @@
                     <tabBarItem key="tabBarItem" title="TV" id="a4W-Ca-hRl"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FQT-Yh-riT">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="FQT-Yh-riT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.79215686269999996" green="0.83529411760000005" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
