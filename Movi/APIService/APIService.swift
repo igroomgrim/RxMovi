@@ -13,6 +13,7 @@ fileprivate let apiKey = ""
 
 enum APIService {
     case getMovies(page: Int)
+    case getMovie(id: Int)
 }
 
 extension APIService: TargetType {
@@ -25,14 +26,15 @@ extension APIService: TargetType {
         switch self {
         case .getMovies:
             return "/discover/movie"
+        case .getMovie(let id):
+            return "/movie/\(id)"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .getMovies:
+        case .getMovies, .getMovie:
             return .get
-
         }
     }
     
@@ -43,6 +45,10 @@ extension APIService: TargetType {
                 "page": page,
                 "api_key": apiKey,
                 "sort_by": "release_date.desc"
+            ]
+        case .getMovie:
+            return [
+                "api_key": apiKey
             ]
         }
     }
@@ -59,7 +65,10 @@ extension APIService: TargetType {
         switch self {
         case .getMovies:
             return "{}".data(using: .utf8)!
+        case .getMovie:
+            return "{}".data(using: .utf8)!
         }
+        
     }
     
     

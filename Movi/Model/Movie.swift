@@ -59,3 +59,36 @@ class Movie: Mappable {
         releaseDate         <- map["release_date"]
     }
 }
+
+
+class Genre: Mappable {
+    var id: Int?
+    var name: String?
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        id <- map["id"]
+        name <- map["name"]
+    }
+}
+
+class MovieDetail: Mappable {
+    var synopsis: String?
+    var genres: [Genre]?
+    var originalLanguage: String?
+    var duration: Int?
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        synopsis <- map["overview"]
+        genres <- map["genres"]
+        originalLanguage <- map["original_language"]
+        duration <- map["runtime"]
+    }
+}
