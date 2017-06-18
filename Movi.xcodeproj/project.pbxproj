@@ -13,6 +13,16 @@
 		985BD4831EF6413F00A155AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 985BD4821EF6413F00A155AC /* Assets.xcassets */; };
 		985BD4861EF6413F00A155AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 985BD4841EF6413F00A155AC /* LaunchScreen.storyboard */; };
 		985BD4911EF6413F00A155AC /* MoviTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985BD4901EF6413F00A155AC /* MoviTests.swift */; };
+		985BD4A91EF646B600A155AC /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 985BD4A41EF646B600A155AC /* RxSwift.framework */; };
+		985BD4AA1EF646BB00A155AC /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 985BD4A01EF646B600A155AC /* Alamofire.framework */; };
+		985BD4AB1EF646BB00A155AC /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 985BD4A01EF646B600A155AC /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		985BD4AC1EF646BB00A155AC /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 985BD4A11EF646B600A155AC /* Moya.framework */; };
+		985BD4AD1EF646BB00A155AC /* Moya.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 985BD4A11EF646B600A155AC /* Moya.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		985BD4AE1EF646BB00A155AC /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 985BD4A21EF646B600A155AC /* ObjectMapper.framework */; };
+		985BD4AF1EF646BB00A155AC /* ObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 985BD4A21EF646B600A155AC /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		985BD4B01EF646BB00A155AC /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 985BD4A31EF646B600A155AC /* Result.framework */; };
+		985BD4B11EF646BB00A155AC /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 985BD4A31EF646B600A155AC /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		985BD4B31EF646BB00A155AC /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 985BD4A41EF646B600A155AC /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +35,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		985BD4B41EF646BB00A155AC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				985BD4B31EF646BB00A155AC /* RxSwift.framework in Embed Frameworks */,
+				985BD4AF1EF646BB00A155AC /* ObjectMapper.framework in Embed Frameworks */,
+				985BD4AD1EF646BB00A155AC /* Moya.framework in Embed Frameworks */,
+				985BD4AB1EF646BB00A155AC /* Alamofire.framework in Embed Frameworks */,
+				985BD4B11EF646BB00A155AC /* Result.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		985BD4781EF6413F00A155AC /* Movi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		985BD47B1EF6413F00A155AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +64,11 @@
 		985BD48C1EF6413F00A155AC /* MoviTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoviTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		985BD4901EF6413F00A155AC /* MoviTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviTests.swift; sourceTree = "<group>"; };
 		985BD4921EF6413F00A155AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		985BD4A01EF646B600A155AC /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		985BD4A11EF646B600A155AC /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moya.framework; path = Carthage/Build/iOS/Moya.framework; sourceTree = "<group>"; };
+		985BD4A21EF646B600A155AC /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
+		985BD4A31EF646B600A155AC /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
+		985BD4A41EF646B600A155AC /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +76,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				985BD4AC1EF646BB00A155AC /* Moya.framework in Frameworks */,
+				985BD4AA1EF646BB00A155AC /* Alamofire.framework in Frameworks */,
+				985BD4B01EF646BB00A155AC /* Result.framework in Frameworks */,
+				985BD4AE1EF646BB00A155AC /* ObjectMapper.framework in Frameworks */,
+				985BD4A91EF646B600A155AC /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +100,7 @@
 				985BD47A1EF6413F00A155AC /* Movi */,
 				985BD48F1EF6413F00A155AC /* MoviTests */,
 				985BD4791EF6413F00A155AC /* Products */,
+				985BD49F1EF646B600A155AC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +167,18 @@
 			name = Storyboard;
 			sourceTree = "<group>";
 		};
+		985BD49F1EF646B600A155AC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				985BD4A01EF646B600A155AC /* Alamofire.framework */,
+				985BD4A11EF646B600A155AC /* Moya.framework */,
+				985BD4A21EF646B600A155AC /* ObjectMapper.framework */,
+				985BD4A31EF646B600A155AC /* Result.framework */,
+				985BD4A41EF646B600A155AC /* RxSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,6 +189,7 @@
 				985BD4741EF6413F00A155AC /* Sources */,
 				985BD4751EF6413F00A155AC /* Frameworks */,
 				985BD4761EF6413F00A155AC /* Resources */,
+				985BD4B41EF646BB00A155AC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -374,6 +426,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7W5MA8FGH5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Movi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.igroomgrim.Movi;
@@ -387,6 +443,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7W5MA8FGH5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Movi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.igroomgrim.Movi;
@@ -444,6 +504,7 @@
 				985BD4971EF6413F00A155AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		985BD4981EF6413F00A155AC /* Build configuration list for PBXNativeTarget "MoviTests" */ = {
 			isa = XCConfigurationList;
@@ -452,6 +513,7 @@
 				985BD49A1EF6413F00A155AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
