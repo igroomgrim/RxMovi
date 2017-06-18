@@ -12,7 +12,7 @@ import Moya
 fileprivate let apiKey = ""
 
 enum APIService {
-    case getMovies(page: Int64)
+    case getMovies(page: Int)
 }
 
 extension APIService: TargetType {
@@ -47,12 +47,12 @@ extension APIService: TargetType {
         }
     }
     
-    var task: Task {
-        return .request
+    var parameterEncoding: ParameterEncoding {
+        return URLEncoding.default
     }
     
-    var parameterEncoding: ParameterEncoding {
-        return JSONEncoding.default
+    var task: Task {
+        return .request
     }
     
     var sampleData: Data {
