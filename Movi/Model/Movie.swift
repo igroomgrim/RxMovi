@@ -50,6 +50,7 @@ class Movie: Mappable {
         voteAverage         <- map["vote_average"]
         title               <- map["title"]
         popularity          <- map["popularity"]
+        posterPath          <- map["poster_path"]
         originalLanguage    <- map["original_language"]
         originalTitle       <- map["original_title"]
         genreIds            <- map["genre_ids"]
