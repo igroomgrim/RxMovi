@@ -27,6 +27,7 @@
 		985BD4BE1EF6499500A155AC /* TV.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 985BD4BD1EF6499500A155AC /* TV.storyboard */; };
 		985BD4C01EF64B8300A155AC /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985BD4BF1EF64B8300A155AC /* MovieListViewController.swift */; };
 		985BD4C21EF64B9500A155AC /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985BD4C11EF64B9500A155AC /* MovieDetailViewController.swift */; };
+		985BD4C51EF64D4D00A155AC /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985BD4C41EF64D4D00A155AC /* Movie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		985BD4BD1EF6499500A155AC /* TV.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = TV.storyboard; path = Storyboard/TV.storyboard; sourceTree = "<group>"; };
 		985BD4BF1EF64B8300A155AC /* MovieListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieListViewController.swift; path = ViewController/MovieListViewController.swift; sourceTree = "<group>"; };
 		985BD4C11EF64B9500A155AC /* MovieDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieDetailViewController.swift; path = ViewController/MovieDetailViewController.swift; sourceTree = "<group>"; };
+		985BD4C41EF64D4D00A155AC /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Movie.swift; path = Model/Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				985BD49B1EF6419900A155AC /* AppDelegate */,
+				985BD4C31EF64D2D00A155AC /* Model */,
 				985BD49C1EF641A100A155AC /* ViewController */,
 				985BD49E1EF641B300A155AC /* Storyboard */,
 				985BD49D1EF641AC00A155AC /* Assets */,
@@ -189,6 +192,14 @@
 				985BD4A41EF646B600A155AC /* RxSwift.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		985BD4C31EF64D2D00A155AC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				985BD4C41EF64D4D00A155AC /* Movie.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,6 +314,7 @@
 				985BD4C01EF64B8300A155AC /* MovieListViewController.swift in Sources */,
 				985BD47E1EF6413F00A155AC /* ViewController.swift in Sources */,
 				985BD47C1EF6413F00A155AC /* AppDelegate.swift in Sources */,
+				985BD4C51EF64D4D00A155AC /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
