@@ -39,7 +39,7 @@ class MovieListViewController: TableViewController {
         
         moviesList.asObservable()
         .bind(to: tableView.rx.items(cellIdentifier: MovieCell.identifier, cellType: MovieCell.self)) { (row: Int, movie: Movie, cell: MovieCell) in
-            cell.titleLabel.text = movie.title
+            cell.bind(movie)
         }
         .addDisposableTo(disposeBag)
         
