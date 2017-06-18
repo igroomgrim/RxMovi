@@ -57,7 +57,7 @@ class MovieListViewController: TableViewController {
         if segue.identifier == "ShowMovieDetail", let movieDetailViewController = segue.destination as? MovieDetailViewController,
             let cell = sender as? MovieCell, let indexPath = tableView.indexPath(for: cell) {
             let movie = moviesList.value[indexPath.row]
-            movieDetailViewController.movie.value = movie
+            movieDetailViewController.movieID.value = movie.id
         }
     }
 }
