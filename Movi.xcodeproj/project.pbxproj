@@ -29,6 +29,12 @@
 		985BD4C21EF64B9500A155AC /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985BD4C11EF64B9500A155AC /* MovieDetailViewController.swift */; };
 		985BD4C51EF64D4D00A155AC /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985BD4C41EF64D4D00A155AC /* Movie.swift */; };
 		985BD4C81EF6500200A155AC /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985BD4C71EF6500200A155AC /* APIService.swift */; };
+		985BD4CA1EF6554F00A155AC /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985BD4C91EF6554F00A155AC /* APIProvider.swift */; };
+		985BD4CD1EF6568600A155AC /* RxMoya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 985BD4CB1EF6568300A155AC /* RxMoya.framework */; };
+		985BD4CE1EF6568600A155AC /* RxMoya.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 985BD4CB1EF6568300A155AC /* RxMoya.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		985BD4D11EF660C400A155AC /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985BD4D01EF660C400A155AC /* MovieCell.swift */; };
+		985BD4D41EF661C400A155AC /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 985BD4D21EF661C100A155AC /* RxCocoa.framework */; };
+		985BD4D51EF661C400A155AC /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 985BD4D21EF661C100A155AC /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +56,8 @@
 			files = (
 				985BD4B31EF646BB00A155AC /* RxSwift.framework in Embed Frameworks */,
 				985BD4AF1EF646BB00A155AC /* ObjectMapper.framework in Embed Frameworks */,
+				985BD4D51EF661C400A155AC /* RxCocoa.framework in Embed Frameworks */,
+				985BD4CE1EF6568600A155AC /* RxMoya.framework in Embed Frameworks */,
 				985BD4AD1EF646BB00A155AC /* Moya.framework in Embed Frameworks */,
 				985BD4AB1EF646BB00A155AC /* Alamofire.framework in Embed Frameworks */,
 				985BD4B11EF646BB00A155AC /* Result.framework in Embed Frameworks */,
@@ -81,6 +89,10 @@
 		985BD4C11EF64B9500A155AC /* MovieDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieDetailViewController.swift; path = ViewController/MovieDetailViewController.swift; sourceTree = "<group>"; };
 		985BD4C41EF64D4D00A155AC /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Movie.swift; path = Model/Movie.swift; sourceTree = "<group>"; };
 		985BD4C71EF6500200A155AC /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIService.swift; path = APIService/APIService.swift; sourceTree = "<group>"; };
+		985BD4C91EF6554F00A155AC /* APIProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIProvider.swift; path = APIService/APIProvider.swift; sourceTree = "<group>"; };
+		985BD4CB1EF6568300A155AC /* RxMoya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxMoya.framework; path = Carthage/Build/iOS/RxMoya.framework; sourceTree = "<group>"; };
+		985BD4D01EF660C400A155AC /* MovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieCell.swift; path = TableViewCell/MovieCell.swift; sourceTree = "<group>"; };
+		985BD4D21EF661C100A155AC /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +103,9 @@
 				985BD4AC1EF646BB00A155AC /* Moya.framework in Frameworks */,
 				985BD4AA1EF646BB00A155AC /* Alamofire.framework in Frameworks */,
 				985BD4B01EF646BB00A155AC /* Result.framework in Frameworks */,
+				985BD4D41EF661C400A155AC /* RxCocoa.framework in Frameworks */,
 				985BD4AE1EF646BB00A155AC /* ObjectMapper.framework in Frameworks */,
+				985BD4CD1EF6568600A155AC /* RxMoya.framework in Frameworks */,
 				985BD4A91EF646B600A155AC /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,6 +146,7 @@
 				985BD4C61EF64FAC00A155AC /* APIService */,
 				985BD4C31EF64D2D00A155AC /* Model */,
 				985BD49C1EF641A100A155AC /* ViewController */,
+				985BD4CF1EF660A400A155AC /* TabelViewCell */,
 				985BD49E1EF641B300A155AC /* Storyboard */,
 				985BD49D1EF641AC00A155AC /* Assets */,
 			);
@@ -188,6 +203,8 @@
 		985BD49F1EF646B600A155AC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				985BD4D21EF661C100A155AC /* RxCocoa.framework */,
+				985BD4CB1EF6568300A155AC /* RxMoya.framework */,
 				985BD4A01EF646B600A155AC /* Alamofire.framework */,
 				985BD4A11EF646B600A155AC /* Moya.framework */,
 				985BD4A21EF646B600A155AC /* ObjectMapper.framework */,
@@ -209,8 +226,17 @@
 			isa = PBXGroup;
 			children = (
 				985BD4C71EF6500200A155AC /* APIService.swift */,
+				985BD4C91EF6554F00A155AC /* APIProvider.swift */,
 			);
 			name = APIService;
+			sourceTree = "<group>";
+		};
+		985BD4CF1EF660A400A155AC /* TabelViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				985BD4D01EF660C400A155AC /* MovieCell.swift */,
+			);
+			name = TabelViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,6 +349,8 @@
 			files = (
 				985BD4C21EF64B9500A155AC /* MovieDetailViewController.swift in Sources */,
 				985BD4C01EF64B8300A155AC /* MovieListViewController.swift in Sources */,
+				985BD4D11EF660C400A155AC /* MovieCell.swift in Sources */,
+				985BD4CA1EF6554F00A155AC /* APIProvider.swift in Sources */,
 				985BD47E1EF6413F00A155AC /* ViewController.swift in Sources */,
 				985BD47C1EF6413F00A155AC /* AppDelegate.swift in Sources */,
 				985BD4C81EF6500200A155AC /* APIService.swift in Sources */,

@@ -9,17 +9,31 @@
 import Foundation
 import ObjectMapper
 
+class MoviesReponse: Mappable {
+    var page: Int?
+    var movies: Array<Movie>?
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        page <- map["page"]
+        movies <- map["results"]
+    }
+}
+
 class Movie: Mappable {
-    var voteCount: Int64?
+    var voteCount: Int?
     var id: String?
     var video: Bool?
-    var voteAverage: Int64?
+    var voteAverage: Int?
     var title: String?
     var popularity: Double?
     var posterPath: String?
     var originalLanguage: String?
     var originalTitle: String?
-    var genreIds: Array<Int64>?
+    var genreIds: Array<Int>?
     var backdropPath: String?
     var adult: Bool?
     var overview: String?
