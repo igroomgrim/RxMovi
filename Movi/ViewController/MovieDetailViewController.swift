@@ -15,9 +15,14 @@ class MovieDetailViewController: TableViewController {
     let movieID: Variable<Int?> = Variable(nil)
     let disposebag = DisposeBag()
     
+    @IBOutlet weak var backdropCell: BackdropCell!
+    @IBOutlet weak var synopsisCell: SynopsisCell!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.tableFooterView = UIView()
+
         movieID.asObservable()
             .filter({ $0 != nil })
             .map({ APIService.getMovie(id: $0!) })
@@ -33,8 +38,10 @@ class MovieDetailViewController: TableViewController {
             }
             .filter({ $0 != nil })
             .map({ $0! })
-            .subscribe(onNext: { movie in
-                print(movie.synopsis)
+            .subscribe(onNext: { [weak self] movie in
+
+                self?.backdropCell.bind(movie)
+                self?.synopsisCell.bind(movie)
             })
             .addDisposableTo(disposebag)
         

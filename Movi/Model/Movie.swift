@@ -77,6 +77,9 @@ class Genre: Mappable {
 }
 
 class MovieDetail: Mappable {
+    var title: String?
+    var backdropPath: String?
+    var posterPath: String?
     var synopsis: String?
     var genres: [Genre]?
     var originalLanguage: String?
@@ -87,6 +90,9 @@ class MovieDetail: Mappable {
     }
     
     func mapping(map: Map) {
+        title <- map["title"]
+        backdropPath <- map["backdrop_path"]
+        posterPath <- map["poster_path"]
         synopsis <- map["overview"]
         genres <- map["genres"]
         originalLanguage <- map["original_language"]
