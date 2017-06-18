@@ -15,6 +15,7 @@ class MovieListViewController: TableViewController {
     
     var disposeBag = DisposeBag()
     var currentPage = 1
+    let moviesList = Variable<[Movie]>([])
     
     override func viewDidLoad() {
         
@@ -26,17 +27,37 @@ class MovieListViewController: TableViewController {
         
         responseStream
         .map { (responseJSON) -> [Movie] in
-            let moviesReponse = Mapper<MoviesReponse>().map(JSONObject: responseJSON)
+                let moviesReponse = Mapper<MoviesReponse>().map(JSONObject: responseJSON)
+                guard let movies = moviesReponse?.movies else {
+                    return []
+                }
             
-            guard let movies = moviesReponse?.movies else {
-                return []
-            }
-            
-            return movies
+                return movies
         }
-        .bind(to: self.tableView.rx.items(cellIdentifier: MovieCell.identifier, cellType: MovieCell.self)) { (row: Int, movie: Movie, cell: MovieCell) in
+        .bind(to: moviesList)
+        .addDisposableTo(disposeBag)
+        
+        moviesList.asObservable()
+        .bind(to: tableView.rx.items(cellIdentifier: MovieCell.identifier, cellType: MovieCell.self)) { (row: Int, movie: Movie, cell: MovieCell) in
             cell.titleLabel.text = movie.title
         }
         .addDisposableTo(disposeBag)
+        
+        let movieSelectedStream = tableView.rx.modelSelected(Movie.self)
+        let cellSelectedStream = tableView.rx.itemSelected
+        
+        Observable.zip(movieSelectedStream, cellSelectedStream) { (movie, indexPath) in
+            self.tableView.deselectRow(at: indexPath, animated: true)
+        }
+        .subscribe()
+        .addDisposableTo(disposeBag)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowMovieDetail", let movieDetailViewController = segue.destination as? MovieDetailViewController,
+            let cell = sender as? MovieCell, let indexPath = tableView.indexPath(for: cell) {
+            let movie = moviesList.value[indexPath.row]
+            movieDetailViewController.movie.value = movie
+        }
     }
 }
