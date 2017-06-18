@@ -25,7 +25,7 @@ class MoviesReponse: Mappable {
 
 class Movie: Mappable {
     var voteCount: Int?
-    var id: String?
+    var id: Int?
     var video: Bool?
     var voteAverage: Int?
     var title: String?
