@@ -13,30 +13,18 @@ import ObjectMapper
 
 class MovieListViewController: TableViewController {
     
+    @IBOutlet weak var movieListRefreshControl: UIRefreshControl!
+    
     var disposeBag = DisposeBag()
-    var currentPage = 1
+    let startPage = 1
     let moviesList = Variable<[Movie]>([])
     
     override func viewDidLoad() {
-        
-        let requestStream = Observable.just(APIService.getMovies(page: currentPage))
-        
-        let responseStream = requestStream.flatMap { (service: APIService) -> Observable<Any> in
-            return APIProvider.request(service).mapJSON()
-        }
-        
-        responseStream
-        .map { (responseJSON) -> [Movie] in
-                let moviesReponse = Mapper<MoviesReponse>().map(JSONObject: responseJSON)
-                guard let movies = moviesReponse?.movies else {
-                    return []
-                }
-            
-                return movies
-        }
+    
+        getMovies(page: startPage)
         .bind(to: moviesList)
         .addDisposableTo(disposeBag)
-        
+ 
         moviesList.asObservable()
         .bind(to: tableView.rx.items(cellIdentifier: MovieCell.identifier, cellType: MovieCell.self)) { (row: Int, movie: Movie, cell: MovieCell) in
             cell.bind(movie)
@@ -51,6 +39,39 @@ class MovieListViewController: TableViewController {
         }
         .subscribe()
         .addDisposableTo(disposeBag)
+        
+        movieListRefreshControl.rx.controlEvent(.valueChanged)
+            .flatMapLatest ({ [unowned self] _ in
+                return self.getMovies(page: self.startPage)
+            })
+            .map({ movies -> [Movie] in
+                return movies
+            })
+            .bind(to: moviesList)
+            .addDisposableTo(disposeBag)
+    
+        moviesList.asObservable()
+            .subscribe(onNext: { [weak self] _ in
+                self?.movieListRefreshControl.endRefreshing()
+            })
+            .addDisposableTo(disposeBag)
+    
+    }
+    
+    private func getMovies(page: Int) -> Observable<[Movie]> {
+        return Observable.just(APIService.getMovies(page: page))
+            .flatMap({ (service: APIService) -> Observable<Any> in
+                return APIProvider.request(service).mapJSON()
+            })
+            .map { (responseJSON) -> [Movie] in
+                
+                let moviesReponse = Mapper<MoviesReponse>().map(JSONObject: responseJSON)
+                guard let movies = moviesReponse?.movies else {
+                    return []
+                }
+                
+                return movies
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
