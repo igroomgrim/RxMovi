@@ -14,6 +14,8 @@
 		14C9C2571EF6E6CB00F59558 /* SynopsisCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C9C2561EF6E6CB00F59558 /* SynopsisCell.swift */; };
 		14C9C2591EF6E6DA00F59558 /* GenresCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C9C2581EF6E6DA00F59558 /* GenresCell.swift */; };
 		14C9C25B1EF6E6E900F59558 /* DurationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C9C25A1EF6E6E900F59558 /* DurationCell.swift */; };
+		984F52631EF7ECE400F5168D /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 984F52611EF7ECE000F5168D /* RxDataSources.framework */; };
+		984F52641EF7ECE400F5168D /* RxDataSources.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 984F52611EF7ECE000F5168D /* RxDataSources.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		985BD47C1EF6413F00A155AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985BD47B1EF6413F00A155AC /* AppDelegate.swift */; };
 		985BD47E1EF6413F00A155AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985BD47D1EF6413F00A155AC /* ViewController.swift */; };
 		985BD4811EF6413F00A155AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 985BD47F1EF6413F00A155AC /* Main.storyboard */; };
@@ -61,6 +63,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				984F52641EF7ECE400F5168D /* RxDataSources.framework in Embed Frameworks */,
 				985BD4B31EF646BB00A155AC /* RxSwift.framework in Embed Frameworks */,
 				985BD4AF1EF646BB00A155AC /* ObjectMapper.framework in Embed Frameworks */,
 				14C9C2511EF6BF8300F59558 /* Kingfisher.framework in Embed Frameworks */,
@@ -82,6 +85,7 @@
 		14C9C2561EF6E6CB00F59558 /* SynopsisCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SynopsisCell.swift; path = TableViewCell/SynopsisCell.swift; sourceTree = "<group>"; };
 		14C9C2581EF6E6DA00F59558 /* GenresCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GenresCell.swift; path = TableViewCell/GenresCell.swift; sourceTree = "<group>"; };
 		14C9C25A1EF6E6E900F59558 /* DurationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DurationCell.swift; path = TableViewCell/DurationCell.swift; sourceTree = "<group>"; };
+		984F52611EF7ECE000F5168D /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
 		985BD4781EF6413F00A155AC /* Movi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		985BD47B1EF6413F00A155AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		985BD47D1EF6413F00A155AC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 				14C9C2501EF6BF8300F59558 /* Kingfisher.framework in Frameworks */,
 				985BD4D41EF661C400A155AC /* RxCocoa.framework in Frameworks */,
 				985BD4AE1EF646BB00A155AC /* ObjectMapper.framework in Frameworks */,
+				984F52631EF7ECE400F5168D /* RxDataSources.framework in Frameworks */,
 				985BD4CD1EF6568600A155AC /* RxMoya.framework in Frameworks */,
 				985BD4A91EF646B600A155AC /* RxSwift.framework in Frameworks */,
 			);
@@ -227,6 +232,7 @@
 		985BD49F1EF646B600A155AC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				984F52611EF7ECE000F5168D /* RxDataSources.framework */,
 				14C9C24E1EF6BF7F00F59558 /* Kingfisher.framework */,
 				985BD4D21EF661C100A155AC /* RxCocoa.framework */,
 				985BD4CB1EF6568300A155AC /* RxMoya.framework */,

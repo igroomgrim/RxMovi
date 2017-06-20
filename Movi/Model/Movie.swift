@@ -8,6 +8,7 @@
 
 import Foundation
 import ObjectMapper
+import RxDataSources
 
 class MoviesReponse: Mappable {
     var page: Int?
@@ -97,5 +98,16 @@ class MovieDetail: Mappable {
         genres <- map["genres"]
         originalLanguage <- map["original_language"]
         duration <- map["runtime"]
+    }
+}
+
+struct SectionOfMovie {
+    var items: [Movie]
+}
+
+extension SectionOfMovie: SectionModelType {
+    init(original: SectionOfMovie, items: [Movie]) {
+        self = original
+        self.items = items
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import ObjectMapper
+import RxDataSources
 
 class MovieListViewController: TableViewController {
     
@@ -18,18 +19,19 @@ class MovieListViewController: TableViewController {
     var disposeBag = DisposeBag()
     let startPage = 1
     let moviesList = Variable<[Movie]>([])
+    let dataSource = RxTableViewSectionedReloadDataSource<SectionOfMovie>()
     
     override func viewDidLoad() {
-    
-        getMovies(page: startPage)
-        .bind(to: moviesList)
-        .addDisposableTo(disposeBag)
- 
-        moviesList.asObservable()
-        .bind(to: tableView.rx.items(cellIdentifier: MovieCell.identifier, cellType: MovieCell.self)) { (row: Int, movie: Movie, cell: MovieCell) in
+        
+        dataSource.configureCell = { (_, tableView, indexPath, movie) in
+            let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.identifier, for: indexPath) as! MovieCell
             cell.bind(movie)
+            return cell
         }
-        .addDisposableTo(disposeBag)
+        
+        getMovies(page: startPage)
+            .bind(to: tableView.rx.items(dataSource: dataSource))
+            .addDisposableTo(disposeBag)
         
         let movieSelectedStream = tableView.rx.modelSelected(Movie.self)
         let cellSelectedStream = tableView.rx.itemSelected
@@ -44,9 +46,7 @@ class MovieListViewController: TableViewController {
             .flatMapLatest ({ [unowned self] _ in
                 return self.getMovies(page: self.startPage)
             })
-            .map({ movies -> [Movie] in
-                return movies
-            })
+            .map { $0[0].items }
             .bind(to: moviesList)
             .addDisposableTo(disposeBag)
     
@@ -55,29 +55,29 @@ class MovieListViewController: TableViewController {
                 self?.movieListRefreshControl.endRefreshing()
             })
             .addDisposableTo(disposeBag)
-    
+        
     }
     
-    private func getMovies(page: Int) -> Observable<[Movie]> {
+    private func getMovies(page: Int) -> Observable<[SectionOfMovie]> {
         return Observable.just(APIService.getMovies(page: page))
             .flatMap({ (service: APIService) -> Observable<Any> in
                 return APIProvider.request(service).mapJSON()
             })
-            .map { (responseJSON) -> [Movie] in
+            .map { (responseJSON) -> [SectionOfMovie] in
                 
                 let moviesReponse = Mapper<MoviesReponse>().map(JSONObject: responseJSON)
                 guard let movies = moviesReponse?.movies else {
-                    return []
+                    return [SectionOfMovie(items: [])]
                 }
                 
-                return movies
+                return [SectionOfMovie(items: movies)]
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowMovieDetail", let movieDetailViewController = segue.destination as? MovieDetailViewController,
             let cell = sender as? MovieCell, let indexPath = tableView.indexPath(for: cell) {
-            let movie = moviesList.value[indexPath.row]
+            let movie = dataSource[indexPath]
             movieDetailViewController.movieID.value = movie.id
         }
     }
