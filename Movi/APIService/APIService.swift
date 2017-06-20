@@ -8,8 +8,15 @@
 
 import Foundation
 import Moya
+import RxSwift
+import RxDataSources
 
 fileprivate let apiKey = ""
+
+struct APIResultListState<Item> {
+    var loadedItems: [Item]
+    var currentPage: Int
+}
 
 enum APIService {
     case getMovies(page: Int)
@@ -70,6 +77,8 @@ extension APIService: TargetType {
         }
         
     }
-    
-    
+}
+
+extension APIService {
+    static let emptyListResult = APIResultListState<Movie>(loadedItems: [], currentPage: 1)
 }
