@@ -11,18 +11,19 @@ import RxSwift
 import RxCocoa
 import ObjectMapper
 
-class MovieDetailViewController: TableViewController {
+class MovieDetailViewController: UIViewController {
     let movieID: Variable<Int?> = Variable(nil)
     let disposebag = DisposeBag()
     
-    @IBOutlet weak var backdropCell: BackdropCell!
-    @IBOutlet weak var synopsisCell: SynopsisCell!
+    @IBOutlet weak var movieImageView: UIImageView!
+    @IBOutlet weak var synopsisLabel: UILabel!
+    @IBOutlet weak var languageLabel: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var genresLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.tableFooterView = UIView()
-
         movieID.asObservable()
             .filter({ $0 != nil })
             .map({ APIService.getMovie(id: $0!) })
@@ -39,9 +40,26 @@ class MovieDetailViewController: TableViewController {
             .filter({ $0 != nil })
             .map({ $0! })
             .subscribe(onNext: { [weak self] movie in
-
-                self?.backdropCell.bind(movie)
-                self?.synopsisCell.bind(movie)
+                self?.synopsisLabel.text = movie.synopsis ?? "-"
+                self?.languageLabel.text = movie.originalLanguage ?? "-"
+                
+                if let duration = movie.duration {
+                    self?.durationLabel.text = (duration != 0) ? "\(duration) min" : "- min"
+                }
+                
+                if let genres = movie.genres {
+                    self?.genresLabel.text = genres.reduce("", { (result, genre) -> String in
+                        guard let genreName = genre.name else {
+                            return "-"
+                        }
+                        
+                        return result + "\(genreName), "
+                    })
+                }
+                
+                let imagePath = movie.backdropPath ?? movie.posterPath ?? ""
+                let imageUrl = "http://image.tmdb.org/t/p/w500\(imagePath)"
+                self?.movieImageView.download(image: imageUrl)
             })
             .addDisposableTo(disposebag)
         
