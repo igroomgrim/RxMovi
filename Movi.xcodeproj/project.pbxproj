@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		147863151EFA8CCC004F261E /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 985BD4D21EF661C100A155AC /* RxCocoa.framework */; };
+		147863171EFA8FDD004F261E /* APIOperationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147863161EFA8FDD004F261E /* APIOperationTest.swift */; };
+		1478631A1EFA9792004F261E /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 147863181EFA9792004F261E /* Nimble.framework */; };
+		1478631B1EFA9792004F261E /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 147863191EFA9792004F261E /* Quick.framework */; };
+		1478631D1EFA97C9004F261E /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 147863181EFA9792004F261E /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1478631E1EFA97C9004F261E /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 147863191EFA9792004F261E /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1478631F1EFA9B5A004F261E /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 985BD4A41EF646B600A155AC /* RxSwift.framework */; };
 		14C9C24D1EF6BB6000F59558 /* UIImageView+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C9C24C1EF6BB6000F59558 /* UIImageView+Kingfisher.swift */; };
 		14C9C2501EF6BF8300F59558 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14C9C24E1EF6BF7F00F59558 /* Kingfisher.framework */; };
 		14C9C2511EF6BF8300F59558 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14C9C24E1EF6BF7F00F59558 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -53,6 +60,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		1478631C1EFA97AE004F261E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1478631D1EFA97C9004F261E /* Nimble.framework in CopyFiles */,
+				1478631E1EFA97C9004F261E /* Quick.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		985BD4B41EF646BB00A155AC /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -75,6 +93,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		147863161EFA8FDD004F261E /* APIOperationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIOperationTest.swift; sourceTree = "<group>"; };
+		147863181EFA9792004F261E /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		147863191EFA9792004F261E /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		14C9C24C1EF6BB6000F59558 /* UIImageView+Kingfisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImageView+Kingfisher.swift"; path = "Extensions/UIImageView+Kingfisher.swift"; sourceTree = "<group>"; };
 		14C9C24E1EF6BF7F00F59558 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		984F52611EF7ECE000F5168D /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
@@ -126,6 +147,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1478631A1EFA9792004F261E /* Nimble.framework in Frameworks */,
+				1478631B1EFA9792004F261E /* Quick.framework in Frameworks */,
+				147863151EFA8CCC004F261E /* RxCocoa.framework in Frameworks */,
+				1478631F1EFA9B5A004F261E /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,6 +204,7 @@
 			children = (
 				985BD4901EF6413F00A155AC /* MoviTests.swift */,
 				985BD4921EF6413F00A155AC /* Info.plist */,
+				147863161EFA8FDD004F261E /* APIOperationTest.swift */,
 			);
 			path = MoviTests;
 			sourceTree = "<group>";
@@ -224,6 +250,8 @@
 		985BD49F1EF646B600A155AC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				147863181EFA9792004F261E /* Nimble.framework */,
+				147863191EFA9792004F261E /* Quick.framework */,
 				984F52611EF7ECE000F5168D /* RxDataSources.framework */,
 				14C9C24E1EF6BF7F00F59558 /* Kingfisher.framework */,
 				985BD4D21EF661C100A155AC /* RxCocoa.framework */,
@@ -290,6 +318,7 @@
 				985BD4881EF6413F00A155AC /* Sources */,
 				985BD4891EF6413F00A155AC /* Frameworks */,
 				985BD48A1EF6413F00A155AC /* Resources */,
+				1478631C1EFA97AE004F261E /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -386,6 +415,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				147863171EFA8FDD004F261E /* APIOperationTest.swift in Sources */,
 				985BD4911EF6413F00A155AC /* MoviTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -553,6 +583,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 7W5MA8FGH5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MoviTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.igroomgrim.MoviTests;
@@ -568,6 +602,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 7W5MA8FGH5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MoviTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.igroomgrim.MoviTests;
