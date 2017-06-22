@@ -14,9 +14,11 @@ class MovieCell: UITableViewCell {
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var popularityLabel: UILabel!
+    @IBOutlet weak var moviLabel: UILabel!
     
     override func prepareForReuse() {
         posterImageView.image = nil
+        moviLabel.isHidden = false
     }
     
     func bind(_ movie: Movie) {
@@ -32,8 +34,10 @@ class MovieCell: UITableViewCell {
             return
         }
         
+        moviLabel.isHidden = true
+        
         let posterUrl = "http://image.tmdb.org/t/p/w500\(posterPath)"
- 
+        
         posterImageView.download(image: posterUrl)
  
     }

@@ -46,6 +46,12 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AfR-iN-WYW">
+                                            <rect key="frame" x="24" y="32" width="32.5" height="17"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="S6M-0I-Ori" firstAttribute="top" secondItem="qm6-yW-zmf" secondAttribute="top" id="6pc-QZ-OAI"/>
@@ -55,10 +61,13 @@
                                         <constraint firstItem="S6M-0I-Ori" firstAttribute="leading" secondItem="qm6-yW-zmf" secondAttribute="leading" id="IJf-xs-6cP"/>
                                         <constraint firstItem="bUP-OA-QnV" firstAttribute="leading" secondItem="S6M-0I-Ori" secondAttribute="trailing" constant="16" id="bxs-31-TC4"/>
                                         <constraint firstItem="yUS-oY-6zd" firstAttribute="top" secondItem="qm6-yW-zmf" secondAttribute="topMargin" constant="8" id="hXa-Ff-i5Y"/>
+                                        <constraint firstItem="AfR-iN-WYW" firstAttribute="centerX" secondItem="S6M-0I-Ori" secondAttribute="centerX" id="jmz-sS-VJE"/>
                                         <constraint firstItem="bUP-OA-QnV" firstAttribute="top" secondItem="yUS-oY-6zd" secondAttribute="bottom" constant="8" id="qML-Ox-9f6"/>
+                                        <constraint firstItem="AfR-iN-WYW" firstAttribute="centerY" secondItem="S6M-0I-Ori" secondAttribute="centerY" id="qkj-rQ-93P"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="moviLabel" destination="AfR-iN-WYW" id="dPa-4R-PUL"/>
                                     <outlet property="popularityLabel" destination="bUP-OA-QnV" id="8JO-Yw-VVB"/>
                                     <outlet property="posterImageView" destination="S6M-0I-Ori" id="WvT-4w-M4m"/>
                                     <outlet property="titleLabel" destination="yUS-oY-6zd" id="QEx-7C-heL"/>
@@ -107,6 +116,7 @@
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RJ1-FY-a8S">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="380"/>
+                                                        <color key="backgroundColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </imageView>
                                                 </subviews>
                                             </stackView>
@@ -211,6 +221,10 @@
                                     <constraint firstAttribute="trailing" secondItem="D4h-qQ-Flv" secondAttribute="trailing" id="ltw-8d-eTb"/>
                                 </constraints>
                             </scrollView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="803-Uq-lxE">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -218,10 +232,13 @@
                             <constraint firstAttribute="trailing" secondItem="1N2-nv-6fe" secondAttribute="trailing" id="C2S-78-eUJ"/>
                             <constraint firstItem="D4h-qQ-Flv" firstAttribute="width" secondItem="PAA-8y-U38" secondAttribute="width" id="Uya-g1-oAp"/>
                             <constraint firstItem="x0i-MW-JKK" firstAttribute="top" secondItem="1N2-nv-6fe" secondAttribute="bottom" id="WIh-yx-JRc"/>
+                            <constraint firstItem="803-Uq-lxE" firstAttribute="centerY" secondItem="PAA-8y-U38" secondAttribute="centerY" id="job-yj-rgr"/>
+                            <constraint firstItem="803-Uq-lxE" firstAttribute="centerX" secondItem="PAA-8y-U38" secondAttribute="centerX" id="mCY-Rn-VZ0"/>
                             <constraint firstItem="1N2-nv-6fe" firstAttribute="top" secondItem="PAA-8y-U38" secondAttribute="top" id="sT1-rX-fiY"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="803-Uq-lxE" id="uv3-43-QwQ"/>
                         <outlet property="durationLabel" destination="29T-U7-nR7" id="lY7-B9-66j"/>
                         <outlet property="genresLabel" destination="H7N-ow-QjJ" id="ZAl-lD-LuY"/>
                         <outlet property="languageLabel" destination="XvC-Cs-EjJ" id="9Ej-oQ-TlM"/>
@@ -237,13 +254,13 @@
         <scene sceneID="hh9-Kg-tGg">
             <objects>
                 <navigationController storyboardIdentifier="MovieListWithNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="2VR-zf-OY5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Movie" id="da5-bW-8e9"/>
+                    <tabBarItem key="tabBarItem" title="Movie" image="movie-icon" id="da5-bW-8e9"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nrS-Kl-Qx9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="nrS-Kl-Qx9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.792156862745098" green="0.83529411764705885" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.29019607843137252" green="0.56470588235294117" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -255,4 +272,7 @@
             <point key="canvasLocation" x="437.60000000000002" y="-46.326836581709152"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="movie-icon" width="30" height="30"/>
+    </resources>
 </document>

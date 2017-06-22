@@ -32,13 +32,13 @@
         <scene sceneID="yeq-O6-4le">
             <objects>
                 <navigationController storyboardIdentifier="TVListWithNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="1Ga-P0-3M8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="TV" id="a4W-Ca-hRl"/>
+                    <tabBarItem key="tabBarItem" title="TV" image="tv-icon" id="a4W-Ca-hRl"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="FQT-Yh-riT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.79215686269999996" green="0.83529411760000005" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.29019607843137252" green="0.56470588235294117" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -50,4 +50,7 @@
             <point key="canvasLocation" x="437.60000000000002" y="608.54572713643188"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tv-icon" width="26" height="26"/>
+    </resources>
 </document>

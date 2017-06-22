@@ -22,6 +22,7 @@ class MovieListViewController: TableViewController {
     let apiManager = APIManager()
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         
         setupDataSource()
         setupTableViewAction()
@@ -88,6 +89,7 @@ extension MovieListViewController {
         if segue.identifier == "ShowMovieDetail", let movieDetailViewController = segue.destination as? MovieDetailViewController,
             let cell = sender as? MovieCell, let indexPath = tableView.indexPath(for: cell) {
             let movie = dataSource[indexPath]
+            movieDetailViewController.title = movie.title ?? "Movie"
             movieDetailViewController.movieID.value = movie.id
         }
     }

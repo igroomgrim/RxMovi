@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class MovieDetailViewController: UIViewController {
+class MovieDetailViewController: ViewController {
     let movieID: Variable<Int?> = Variable(nil)
     let disposebag = DisposeBag()
     let apiManager = APIManager()
@@ -20,15 +20,21 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var languageLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var genresLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        activityIndicator.startAnimating()
         
         movieID.asObservable()
             .filter({ $0 != nil })
             .map({ $0! })
             .flatMap({ self.apiManager.getMovieDetail(id: $0) })
-            .filter({ $0 != nil })
+            .filter({ [weak self] (movieDetail) -> Bool in
+                self?.activityIndicator.stopAnimating()
+                return (movieDetail != nil) ? true : false
+            })
             .map({ $0! })
             .subscribe(onNext: { [weak self] movie in
                 self?.synopsisLabel.text = movie.synopsis ?? "-"
