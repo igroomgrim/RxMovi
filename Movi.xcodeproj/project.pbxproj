@@ -17,6 +17,7 @@
 		14C9C24D1EF6BB6000F59558 /* UIImageView+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C9C24C1EF6BB6000F59558 /* UIImageView+Kingfisher.swift */; };
 		14C9C2501EF6BF8300F59558 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14C9C24E1EF6BF7F00F59558 /* Kingfisher.framework */; };
 		14C9C2511EF6BF8300F59558 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14C9C24E1EF6BF7F00F59558 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9822ACA11EFBC03A00D43A2F /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9822ACA01EFBC03A00D43A2F /* Formatter.swift */; };
 		984F52631EF7ECE400F5168D /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 984F52611EF7ECE000F5168D /* RxDataSources.framework */; };
 		984F52641EF7ECE400F5168D /* RxDataSources.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 984F52611EF7ECE000F5168D /* RxDataSources.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		985BD47C1EF6413F00A155AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985BD47B1EF6413F00A155AC /* AppDelegate.swift */; };
@@ -98,6 +99,7 @@
 		147863191EFA9792004F261E /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		14C9C24C1EF6BB6000F59558 /* UIImageView+Kingfisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImageView+Kingfisher.swift"; path = "Extensions/UIImageView+Kingfisher.swift"; sourceTree = "<group>"; };
 		14C9C24E1EF6BF7F00F59558 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		9822ACA01EFBC03A00D43A2F /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Formatter.swift; path = Helper/Formatter.swift; sourceTree = "<group>"; };
 		984F52611EF7ECE000F5168D /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
 		985BD4781EF6413F00A155AC /* Movi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		985BD47B1EF6413F00A155AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -165,6 +167,14 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		9822AC9F1EFBC01600D43A2F /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				9822ACA01EFBC03A00D43A2F /* Formatter.swift */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
 		985BD46F1EF6413F00A155AC = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +203,7 @@
 				985BD49C1EF641A100A155AC /* ViewController */,
 				985BD4CF1EF660A400A155AC /* TabelViewCell */,
 				14C9C24B1EF6BAF600F59558 /* Extensions */,
+				9822AC9F1EFBC01600D43A2F /* Helper */,
 				985BD49E1EF641B300A155AC /* Storyboard */,
 				985BD49D1EF641AC00A155AC /* Assets */,
 			);
@@ -401,6 +412,7 @@
 			files = (
 				985BD4C21EF64B9500A155AC /* MovieDetailViewController.swift in Sources */,
 				985BD4C01EF64B8300A155AC /* MovieListViewController.swift in Sources */,
+				9822ACA11EFBC03A00D43A2F /* Formatter.swift in Sources */,
 				985BD4D11EF660C400A155AC /* MovieCell.swift in Sources */,
 				14C9C24D1EF6BB6000F59558 /* UIImageView+Kingfisher.swift in Sources */,
 				985BD4CA1EF6554F00A155AC /* APIProvider.swift in Sources */,

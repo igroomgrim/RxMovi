@@ -9,11 +9,11 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import ObjectMapper
 
 class MovieDetailViewController: UIViewController {
     let movieID: Variable<Int?> = Variable(nil)
     let disposebag = DisposeBag()
+    let apiManager = APIManager()
     
     @IBOutlet weak var movieImageView: UIImageView!
     @IBOutlet weak var synopsisLabel: UILabel!
@@ -26,17 +26,8 @@ class MovieDetailViewController: UIViewController {
         
         movieID.asObservable()
             .filter({ $0 != nil })
-            .map({ APIService.getMovie(id: $0!) })
-            .flatMap { (service: APIService) -> Observable<Any> in
-                return APIProvider.request(service).mapJSON()
-            }
-            .map { (responseJSON) -> MovieDetail? in
-                guard let movieDetail = Mapper<MovieDetail>().map(JSONObject: responseJSON) else {
-                    return nil
-                }
-                
-                return movieDetail
-            }
+            .map({ $0! })
+            .flatMap({ self.apiManager.getMovieDetail(id: $0) })
             .filter({ $0 != nil })
             .map({ $0! })
             .subscribe(onNext: { [weak self] movie in
@@ -62,6 +53,5 @@ class MovieDetailViewController: UIViewController {
                 self?.movieImageView.download(image: imageUrl)
             })
             .addDisposableTo(disposebag)
-        
     }
 }

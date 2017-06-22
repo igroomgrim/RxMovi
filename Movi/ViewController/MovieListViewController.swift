@@ -9,7 +9,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import ObjectMapper
 import RxDataSources
 
 class MovieListViewController: TableViewController {
@@ -20,6 +19,7 @@ class MovieListViewController: TableViewController {
     let startPage = 1
     let moviesList = Variable<[SectionOfMovie]>([])
     let dataSource = RxTableViewSectionedReloadDataSource<SectionOfMovie>()
+    let apiManager = APIManager()
     
     override func viewDidLoad() {
         
@@ -36,7 +36,7 @@ class MovieListViewController: TableViewController {
                 (indexPath.section == self.dataSource.sectionModels.count - 1) && (indexPath.row == (self.dataSource.sectionModels.last?.items.count ?? 0) - 1) ? Observable.just() : Observable.empty()
             }
         
-        fetchMovies(page: startPage, loadTrigger: scrollToBottom)
+        apiManager.discoverMovies(page: startPage, loadTrigger: scrollToBottom)
             .map { (result) -> [SectionOfMovie] in
                 return [SectionOfMovie(items: result.loadedItems)]
             }
@@ -46,7 +46,7 @@ class MovieListViewController: TableViewController {
         // Pull to refresh handler
         movieListRefreshControl.rx.controlEvent(.valueChanged)
             .flatMapLatest ({ [unowned self] _ in
-                return self.fetchMovies(page: self.startPage)
+                return self.apiManager.discoverMovies(page: 1, loadTrigger: Observable.empty())
             })
             .map { (result) -> [SectionOfMovie] in
                 return [SectionOfMovie(items: result.loadedItems)]
@@ -59,10 +59,11 @@ class MovieListViewController: TableViewController {
                 self?.movieListRefreshControl.endRefreshing()
             })
             .addDisposableTo(disposeBag)
-
     }
-    
-    func setupDataSource() {
+}
+
+extension MovieListViewController {
+    fileprivate func setupDataSource() {
         dataSource.configureCell = { (_, tableView, indexPath, movie) in
             let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.identifier, for: indexPath) as! MovieCell
             cell.bind(movie)
@@ -70,7 +71,7 @@ class MovieListViewController: TableViewController {
         }
     }
     
-    func setupTableViewAction() {
+    fileprivate func setupTableViewAction() {
         let movieSelectedStream = tableView.rx.modelSelected(Movie.self)
         let cellSelectedStream = tableView.rx.itemSelected
         
@@ -80,38 +81,9 @@ class MovieListViewController: TableViewController {
             .subscribe()
             .addDisposableTo(disposeBag)
     }
-    
-    func fetchMovies(page: Int = 1) -> Observable<APIResultListState<Movie>> {
-        return Observable.just(APIService.getMovies(page: page))
-            .flatMap({ (service: APIService) -> Observable<Any> in
-                return APIProvider.request(service).mapJSON()
-            })
-            .map({ responseJSON in
-                let moviesReponse = Mapper<MoviesReponse>().map(JSONObject: responseJSON)
-                guard let movies = moviesReponse?.movies else {
-                    return APIResultListState(loadedItems: [], currentPage: page)
-                }
-                
-                return APIResultListState(loadedItems: movies, currentPage: page)
-            })
-    }
-    
-    func fetchMovies(page: Int, loadTrigger: Observable<Void>) -> Observable<APIResultListState<Movie>> {
-        return fetchMoviesRecursively(lastResult: APIService.emptyListResult, loadTrigger: loadTrigger)
-    }
-    
-    func fetchMoviesRecursively(lastResult: APIResultListState<Movie>, loadTrigger: Observable<Void>) -> Observable<APIResultListState<Movie>> {
-        return fetchMovies(page: lastResult.currentPage).flatMap { [unowned self] result -> Observable<APIResultListState<Movie>> in
-            var currentResult = result
-            currentResult.loadedItems = lastResult.loadedItems + result.loadedItems
-            currentResult.currentPage += 1
-            
-            return Observable.concat([Observable.just(currentResult),
-                                      Observable.never().takeUntil(loadTrigger),
-                                      self.fetchMoviesRecursively(lastResult: currentResult, loadTrigger: loadTrigger)])
-        }
-    }
-    
+}
+
+extension MovieListViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowMovieDetail", let movieDetailViewController = segue.destination as? MovieDetailViewController,
             let cell = sender as? MovieCell, let indexPath = tableView.indexPath(for: cell) {
